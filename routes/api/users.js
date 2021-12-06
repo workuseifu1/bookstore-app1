@@ -1,18 +1,9 @@
-const express = require("express");
+var express = require("express");
 
-const router = express.Router();
-router.get("/", function(require,response){
-//console.log("hello ");
-response.json("This is a json status code for the users api");
+var router = express.Router();
+
+router.get("/", function (req, res) {
+  res.json("This is a json status code for the users api");
 });
 
-/*router.get("/register", function(require,response){
-    
-    response.render("register");
-    });
-
-    router.get("/contact", function(require,response){
-    
-        response.render("contact");
-         });*/
 module.exports = router;
