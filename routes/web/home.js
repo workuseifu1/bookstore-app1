@@ -1,11 +1,13 @@
 var express = require("express");
 var passport = require("passport");
 
+
 var User = require("../../models/user");
 
 var router = express.Router();
 
 router.get("/", function (req, res) {
+  
   res.render("home/");
 });
 
@@ -16,6 +18,7 @@ router.get("/home", function (req, res) {
 router.get("/about", function (req, res) {
   res.render("home/about");
 });
+
 
 router.get("/login", function (req, res) {
   res.render("home/login");

@@ -1,5 +1,11 @@
 var bcrypt = require("bcryptjs");
 var mongoose = require("mongoose");
+var mongoDB = "mongodb://127.0.0.1/comics";
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+
+const db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const SALT_FACTOR = 10;
 
@@ -41,4 +47,5 @@ userSchema.methods.checkPassword = function (guess, done) {
 
 var User = mongoose.model("User", userSchema);
 
-module.exports = User;
+module.exports = mongoose.model("userModel", userSchema);
+

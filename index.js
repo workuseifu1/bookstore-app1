@@ -6,20 +6,16 @@ var cookieParser = require("cookie-parser");
 var passport = require("passport");
 var session = require("express-session");
 var flash = require("connect-flash");
-var params = require("./params/params");
 
 var setUpPassport = require("./setuppassport");
 
 
 const app = express();
-mongoose.connect(params.DATABASECONNECTION, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useCreateIndex: true,
-});
+
+
 setUpPassport();
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
